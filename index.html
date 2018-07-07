@@ -925,13 +925,25 @@
 					<div class="contact-form-md white-background">
 						<h5 class="center-holder">Let's talk about your Business.</h5>
 						<!-- Form Start -->
-						<form method="get" action="#" class="mt-30">
-							<input type="text" name="name" placeholder="Your Name">
-							<input type="email" name="email" placeholder="Your Email">
-							<input type="text" name="subject" placeholder="Subject">
-							<textarea name="message" placeholder="Your Message"></textarea>
-							<button type="submit" class="primary-button button-sm">Send Message</button>
-						</form>
+						<form id="contactform" class="primary-form mt-20">
+								<div class="row">
+									
+											<textarea name="message" id="message" placeholder="Your Message"></textarea>
+								
+								
+											<input type="text" id="name" name="name" placeholder="Your Name">
+									
+									
+											<input type="text" id="mail" name="mail" placeholder="Your Email">
+								
+								
+											<input type="text" id="phone" name="phone" placeholder="Phone">
+								
+								
+										<button type="button" id="btnSubmit" class="primary-button button-sm semi-rounded">Send Message</button>
+								
+								</div>
+							</form>
 						<!-- Form End -->
 					</div>
 				</div>
@@ -1020,22 +1032,6 @@
 
 
 
-
-	<!-- Action Box START -->
-	<div class="action-box action-box-md grey-bg center-holder-xs">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-10 col-sm-10 col-12">
-					<h3 class="bold">Have An Idea Share With Us </h3>
-					
-				</div>
-				<div class="col-md-2 col-sm-2 col-12 right-holder center-holder-xs">
-					<a href="#" class="button-md primary-button">Contact Us</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Action Box END -->
 
 
 
@@ -1288,6 +1284,43 @@
 	<!-- Main JS -->
 	<script src="js/main.js"></script>
 
+
+	<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js"></script>
+
+    <script type="text/javascript">
+        (function () {
+            emailjs.init("user_cgWmsIbVIbHrxcZn08tKU");
+        })();
+    </script>
+    <script>
+        $("#btnSubmit").click(function () {
+
+            var name = $('#name').val();
+            var mail = $('#mail').val();
+            var phone = $('#phone').val();
+            var message = $('#message').val();
+            var template_params = {
+                "reply_to": "neeraj@intelligenceinfotech.com",
+                "from_name": name,
+                "to_name": "Neeraj ",
+                "message_html": `<p class="text-justify"> 
+                                         Name : ${name}
+                                        <br>  Mobile : ${phone} 
+                                        <br> Email : ${mail}
+                                        <br> message : ${message}
+                                    </p>`
+            }
+
+            var service_id = "default_service";
+            var template_id = "template_sh3i9DPE";
+            emailjs.send(service_id, template_id, template_params);
+            document.getElementById("contactform").reset();
+            bootbox.alert("Thanks " + name + " we will get back to you shortly on " + mail, function () {
+                console.log("Alert Callback");
+            });
+        });
+    </script> 
 </body>
 
 </html>
