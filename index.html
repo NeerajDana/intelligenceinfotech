@@ -28,13 +28,31 @@
 	</script>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 
+
 	<link rel="stylesheet" type="text/css" href="css/mainMin.css"/>
 
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-	<script src="//code.tidio.co/on3rffbcflcxsugyqntji9bndocgauxp.js"></script>
+	<noscript id="deferred-styles">
+			
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+	
+	  </noscript>
+	  <script>
+		var loadDeferredStyles = function() {
+		  var addStylesNode = document.getElementById("deferred-styles");
+		  var replacement = document.createElement("div");
+		  replacement.innerHTML = addStylesNode.textContent;
+		  document.body.appendChild(replacement)
+		  addStylesNode.parentElement.removeChild(addStylesNode);
+		};
+		var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+			window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+		if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+		else window.addEventListener('load', loadDeferredStyles);
+	  </script>
+
 </head>
 
 <body>
@@ -1284,7 +1302,7 @@
 
 
 
-
+	<script src="//code.tidio.co/on3rffbcflcxsugyqntji9bndocgauxp.js"></script>
 
 	<script src="js/mainMin.js"></script>
 
